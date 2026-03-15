@@ -1,0 +1,16 @@
+services:
+  flask-app:
+    build:
+      context: flask-app
+      dockerfile: Dockerfile
+    image: grexdin/flask-app:latest 
+  
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    image: grexdin/flask-app-nginx:latest
+    ports:
+      - "80:80"
+    depends_on:
+      - flask-app
