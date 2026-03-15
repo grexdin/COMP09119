@@ -3,13 +3,13 @@ services:
     build:
       context: flask-app
       dockerfile: Dockerfile
-    image: grexdin/flask-app:latest 
+    image: grexdin/flask-app:${IMAGE_TAG:-latest}
   
   nginx:
     build:
       context: nginx
       dockerfile: Dockerfile
-    image: grexdin/flask-app-nginx:latest
+    image: grexdin/flask-app-nginx:${IMAGE_TAG:-latest}
     ports:
       - "80:80"
     depends_on:
